@@ -10,6 +10,7 @@ import { RxInfoCircled } from "react-icons/rx";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createdIssueSchema } from "@/app/validationSchemas";
 import { z } from "zod";
+import ErrorMessage from "@/app/components/ErrorMessage";
 
 
 
@@ -60,7 +61,9 @@ const NewIssue = () => {
       })}
 >
           <TextField.Root placeholder="title"  {...register('title')} />
-          {errors.title && <Text color="red" as="p">{ errors.title?.message }</Text>}
+          <ErrorMessage>
+            {errors.title?.message}
+          </ErrorMessage>
       <Controller
         name="description"
         control={control}
@@ -68,8 +71,9 @@ const NewIssue = () => {
               <SimpleMDE placeholder="Description..." {...field} />
             )}
           />
-          {errors.description && <Text as="p" color="red">
-            {errors.description?.message}</Text>}
+          <ErrorMessage>
+            {errors.description?.message}
+        </ErrorMessage>
 
       <Button>Submit New Issue</Button>
     </form>
