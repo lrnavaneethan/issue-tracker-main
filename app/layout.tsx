@@ -12,9 +12,9 @@ const geistSans = Geist({
 });
 
 const inter = Inter({
-	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 const geistMono = Geist_Mono({
@@ -34,8 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={ inter.variable}>
+      <body className={inter.variable}>
         <Theme appearance="light" accentColor="violet">
           <NavBar />
           <main className="p-4">{children}</main>
