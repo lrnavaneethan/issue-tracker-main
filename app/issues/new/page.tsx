@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createdIssueSchema } from "@/app/validationSchemas";
 import { z } from "zod";
 import ErrorMessage from "@/app/components/ErrorMessage";
+import Spinner from "@/app/components/Spinner";
 
 
 
@@ -28,7 +29,8 @@ type IssueForm = z.infer<typeof createdIssueSchema>
 
 const NewIssue = () => {
   const router = useRouter();
-  const [error,setError] = useState('');
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const { register, control, handleSubmit, formState:{errors} } = useForm<IssueForm>({
     resolver: zodResolver(createdIssueSchema)
@@ -53,9 +55,11 @@ const NewIssue = () => {
     <form className=" space-y-3"
       onSubmit={handleSubmit(async (data) => {
         try {
+          setIsLoading(true)
           await axios.post('/api/issues', data)
           router.push('/issues')
         } catch (error) {
+          setIsLoading(false)
           setError('Error creating an issue')
         }
       })}
@@ -75,7 +79,7 @@ const NewIssue = () => {
             {errors.description?.message}
         </ErrorMessage>
 
-      <Button>Submit New Issue</Button>
+          <Button disabled={isLoading }>Submit New Issue { isLoading && <Spinner/>}</Button>
     </form>
       </div>
           </>
