@@ -108,14 +108,9 @@ var jo = Z((pf, Zn) => {
         throw new Error(
           "`x`, `y` and `length` must be defined when `x` or `y` is defined",
         );
-      return (
-        (e = e.replace(/\|/g, "")),
-        (r += t.isHidden ? "AddHiddenAnnotation=" : "AddAnnotation="),
-        t.length > 0
-          ? (r += (n ? [e, t.length, t.x, t.y] : [t.length, e]).join("|"))
-          : (r += e),
-        r + ft
-      );
+      return ((e = e.replace(/\|/g, "")), (r += t.isHidden ? "AddHiddenAnnotation=" : "AddAnnotation="), t.length > 0
+        ? (r += (n ? [e, t.length, t.x, t.y] : [t.length, e]).join("|"))
+        : (r += e), r + ft);
     },
   };
 });

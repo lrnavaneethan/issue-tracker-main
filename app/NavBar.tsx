@@ -16,7 +16,7 @@ const NavBar = () => {
   return (
     <div>
       <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <AiFillBug />
         </Link>
         <ul className="flex space-x-6">
@@ -29,7 +29,7 @@ const NavBar = () => {
                 "hover:text-zinc-800 transition-colors": true,
               })}
               href={link.href}
-            >
+              legacyBehavior>
               {link.lable}
             </Link>
           ))}

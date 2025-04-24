@@ -35,11 +35,7 @@ function gr(e, t) {
   if (((t = t.toLowerCase()), t === "utf8" || t === "utf-8"))
     return new y(Wo.encode(e));
   if (t === "base64" || t === "base64url")
-    return (
-      (e = e.replace(/-/g, "+").replace(/_/g, "/")),
-      (e = e.replace(/[^A-Za-z0-9+/]/g, "")),
-      new y([...atob(e)].map((r) => r.charCodeAt(0)))
-    );
+    return ((e = e.replace(/-/g, "+").replace(/_/g, "/")), (e = e.replace(/[^A-Za-z0-9+/]/g, "")), new y([...atob(e)].map((r) => r.charCodeAt(0))));
   if (t === "binary" || t === "ascii" || t === "latin1" || t === "latin-1")
     return new y([...e].map((r) => r.charCodeAt(0)));
   if (t === "ucs2" || t === "ucs-2" || t === "utf16le" || t === "utf-16le") {
@@ -62,27 +58,20 @@ function Qo(e) {
     ),
     n = r.map((a) => a.replace("get", "read").replace("set", "write")),
     i = (a, u) =>
-      function (g = 0) {
+      (function(g = 0) {
         return (
           B(g, "offset"),
           Y(g, "offset"),
           V(g, "offset", this.length - 1),
           new DataView(this.buffer)[r[a]](g, u)
         );
-      },
+      }),
     o = (a, u) =>
-      function (g, T = 0) {
+      (function(g, T = 0) {
         let C = r[a].match(/set(\w+\d+)/)[1].toLowerCase(),
           O = Go[C];
-        return (
-          B(T, "offset"),
-          Y(T, "offset"),
-          V(T, "offset", this.length - 1),
-          Jo(g, "value", O[0], O[1]),
-          new DataView(this.buffer)[r[a]](T, g, u),
-          T + parseInt(r[a].match(/\d+/)[0]) / 8
-        );
-      },
+        return (B(T, "offset"), Y(T, "offset"), V(T, "offset", this.length - 1), Jo(g, "value", O[0], O[1]), new DataView(this.buffer)[r[a]](T, g, u), T + parseInt(r[a].match(/\d+/)[0]) / 8);
+      }),
     s = (a) => {
       a.forEach((u) => {
         u.includes("Uint") && (e[u.replace("Uint", "UInt")] = e[u]),
