@@ -1,5 +1,5 @@
-import NextLink from 'next/link';
-import { Link as RadixLink } from '@radix-ui/themes';
+import NextLink from "next/link";
+import { Link as RadixLink } from "@radix-ui/themes";
 
 interface Props {
   href: string;
@@ -7,10 +7,7 @@ interface Props {
 }
 
 const Link = ({ href, children }: Props) => {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 };
 
 export default Link;

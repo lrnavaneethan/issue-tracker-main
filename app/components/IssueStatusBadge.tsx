@@ -4,7 +4,7 @@ import React from "react";
 
 const statusMap: Record<
   Status,
-  { lable: string; color: 'red' | 'violet' | 'green'}
+  { lable: string; color: "red" | "violet" | "green" }
 > = {
   CLOSED: { lable: "Closed", color: "green" },
   OPEN: { lable: "Open", color: "red" },

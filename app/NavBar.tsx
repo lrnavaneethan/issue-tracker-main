@@ -29,7 +29,8 @@ const NavBar = () => {
                 "hover:text-zinc-800 transition-colors": true,
               })}
               href={link.href}
-              legacyBehavior>
+              legacyBehavior
+            >
               {link.lable}
             </Link>
           ))}
