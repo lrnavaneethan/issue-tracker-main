@@ -5,7 +5,7 @@ const IssueAction = () => {
   return (
     <div className="mb-5">
             <Button>
-              <Link href="/issues/new">New Issues</Link>{" "}
+              <Link href="/issues/new">New Issues</Link>
             </Button>
           </div>
   )
